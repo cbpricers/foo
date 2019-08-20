@@ -41,15 +41,18 @@ function fetchPage(url, callback) {
 
 function run(db) {
 	// Use request to read in pages.
-	fetchPage("https://morph.io", function (body) {
+	fetchPage("https://www.bedbathandbeyond.com/api/apollo/collections/bedbath/query-profiles/v1/select?web3feo=abc&start=0&sort=LOW_PRICE+asc&q=0&rows=24&site=BedBathUS&wt=json&currencyCode=USD&country=US&noFacet=true&isBrowser=true", function (body) {
 		// Use cheerio to find things in the page with css selectors.
 		var $ = cheerio.load(body);
-
+/*
 		var elements = $("div.media-body span.p-name").each(function () {
 			var value = $(this).text().trim();
 			updateRow(db, value);
 		});
-
+*/
+		d = JSON.parse(body);
+		console.log(d.fusion.resultStage);
+		
 		readRows(db);
 
 		db.close();

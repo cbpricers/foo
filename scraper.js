@@ -50,8 +50,8 @@ function run(db) {
 			updateRow(db, value);
 		});
 */
-		d = JSON.parse(body);
-		console.log(d.fusion.resultStage);
+		//d = JSON.parse(body);
+		console.log(body);
 		
 		readRows(db);
 
